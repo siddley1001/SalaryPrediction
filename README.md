@@ -1,2 +1,2 @@
 # SalaryPrediction
-##Goal: To predict Salary based different attributes of the job.
+## Goal: To predict Salary based different attributes of the job.
