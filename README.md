@@ -57,15 +57,27 @@
         - Salary has a Gaussian or *Normal* Distribution
         - All other features ahve a *Uniform* Distribution
       - Create and Pickle: Train, Validation, and Test data
-  3. **Develop** Features and Models
+  3. **Develop** Pipelines for the different Models
     - ***Notebook: 'Base Model Predictions for Salary'***
-      - Find base MSE scores for each model and pre-determined parameters
-        - Random Forest Regressor: 470.92
-        - XGB Regressor: 395.18
-        - Linear Regression: 384.62
-        - Light GBM Regressor: 372.05
-        - Gradient Boosting Regressor: 362.09
-      - Feature Importance varies depending on whether the algorithim is a *boosting* regressor
+      - Generate 2 main pipeline workflows:
+          1. **pipe1** (the same structure for creating the Baseline model):
+             - One Hot Encoder for ['companyId', 'major', 'industry']
+             - Ordinal Encoder for ['jobType', 'degree']
+          2. **pipe2**:
+             - One Hot Encoder for ALL features
+      - Pipe1 MSE scores for each model:
+        - Random Forest Regressor: 421.06
+        - XGB Regressor: 378.76
+        - Linear Regression: 720.05
+        - Light GBM Regressor: 370.16
+        - Gradient Boosting Regressor: 369.05
+      - Pipe2 MSE scoresfor each model:
+        - Random Forest Regressor: 460.36
+        - XGB Regressor: 394.98
+        - Linear Regression: 384.76
+        - Light GBM Regressor: 374.42
+        - Gradient Boosting Regressor: 367.19 
+      - ***Summary:*** The **Gradient Boosting Regressors** - LightGBM and Gradient Boosting - performed **best** between *both* pipelines. While - **Random Forest Regressor** performed the **worst** on average.
    - ***Notebook: 'Tuning Hyperparameters from Baseline Models'***
       - MSE Scores on *Validation data* for models after Tuned:
         - Random Forest Regressor: 370.82
